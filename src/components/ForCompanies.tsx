@@ -1,5 +1,7 @@
 import React from 'react';
 import { Building2, Users, BarChart } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 
 const ForCompanies = () => {
   const benefits = [
@@ -42,9 +44,15 @@ const ForCompanies = () => {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <button className="px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
-            Demander une démo
-          </button>
+        <div className="mt-12 text-center">
+  <Link
+    to="/demo"
+    className="inline-block px-8 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+  >
+    Demander une démo
+  </Link>
+</div>
+
         </div>
       </div>
     </section>

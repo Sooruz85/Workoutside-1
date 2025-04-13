@@ -1,17 +1,22 @@
-// src/main.tsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import { ClerkProvider } from '@clerk/clerk-react'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ClerkProvider } from '@clerk/clerk-react';
+import App from './App';
+import DemoPage from './pages/DemoPage';
+import './index.css';
 
-const PUBLISHABLE_KEY = 'pk_test_YnVyc3RpbmctYnVsbGZyb2ctMjcuY2xlcmsuYWNjb3VudHMuZGV2JA'
-
+const clerkPublishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-      <App />
+    <ClerkProvider publishableKey={clerkPublishableKey}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/demo" element={<DemoPage />} />
+        </Routes>
+      </BrowserRouter>
     </ClerkProvider>
   </React.StrictMode>
-)
+);
